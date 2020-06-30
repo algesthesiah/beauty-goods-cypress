@@ -14,4 +14,4 @@ RUN npm i yarn -g \
 ARG gitCommit
 ENV GIT_COMMIT ${gitCommit}
 
-CMD ["/start.sh"]
+CMD ["/code/start.sh"]
