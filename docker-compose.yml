@@ -6,8 +6,6 @@ services:
    image: registry.cn-shenzhen.aliyuncs.com/algesthesiahunter/beauty-goods-cypress:latest
    ports:
       - "8089:8089"
-   volumes:
-      - "/Users/liulu/Desktop/demo/test/cypress-demo/code:/code"
    extra_hosts:
        - "mei-vip.youzanyun.com:192.168.66.239"
        - "mei.youzanyun.com:192.168.66.239"
