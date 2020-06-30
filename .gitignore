@@ -1,5 +1,5 @@
-node_modules*
-code*
-**/screenshots*
-**/videos*
-mochawesome-report*
+node_modules
+code
+/cypress/screenshots/
+/cypress/videos/
+mochawesome-report
