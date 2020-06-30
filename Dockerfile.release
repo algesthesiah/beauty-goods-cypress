@@ -13,4 +13,4 @@ RUN npm i yarn -g \
 ARG gitCommit
 ENV GIT_COMMIT ${gitCommit}
 
-CMD [ "npm", "start"]
+CMD [ "npm", "test"]
