@@ -3,7 +3,7 @@ version: "3.7"
 services:
   beauty-goods-cypress:
    container_name: beauty-goods-cypress
-   image: registry.cn-shenzhen.aliyuncs.com/algesthesiahunter/beauty-goods-cypress:test
+   image: registry.cn-shenzhen.aliyuncs.com/algesthesiahunter/beauty-goods-cypress:latest
    ports:
       - "8089:8089"
    volumes:
