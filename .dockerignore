@@ -10,3 +10,7 @@ selenium-debug.log
 node_modules/
 .cache
 .cache-loader
+report
+/cypress/screenshots
+/cypress/videos
+mochawesome-report

@@ -43,7 +43,7 @@ describe('add-product', () => {
     cy.get('.zent-select-popup > :nth-child(1)').click()
     // 标签
     cy.get('.zent-select-tags').click()
-    cy.get('.zent-select-option').click()
+    cy.get('.zent-select-popup > :nth-child(1)').click()
     // 图片
     // 监听路由
     cy.server()
