@@ -11,7 +11,7 @@
     "overwrite": true,
     "html": false,
     "json": true,
-    "timestamp":"mmddyyyy_HH"
+    "timestamp":"mmddyyyy_HHMMss"
   },
   "viewportHeight": 800
 }
