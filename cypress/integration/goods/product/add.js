@@ -5,7 +5,7 @@ describe('add-product', () => {
     cy.login()
   })
   beforeEach(() => {
-    cy.visit('/dashboard#/goods/manage/product/common/list/MAIN_MAIN')
+    cy.visit('https://mei.youzan.com/dashboard#/goods/manage/product/common/list/MAIN_MAIN')
     cy.get('.g-space-between > :nth-child(1) > div > .zent-btn-primary')
       .should('contain', '添加产品')
       .click()

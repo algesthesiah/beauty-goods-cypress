@@ -3,7 +3,6 @@
   "watchForFileChanges": false,
   "integrationFolder": "cypress/integration",
   "ignoreTestFiles": ["**/examples/*","**/utils/*"],
-  "baseUrl": "https://mei.youzan.com",
   "requestTimeout": 8000,
   "viewportWidth": 1400,
   "reporter": "mochawesome",

@@ -6,9 +6,7 @@ Cypress.Commands.add('login', () => {
   cy.server()
   cy.route('**/newGetCountryCodeList*').as('loginPageLoaded')
   cy.visit('https://account.youzan.com/login')
-  cy.log('nmb=====1')
   cy.wait('@loginPageLoaded').its('responseBody.code').should('eq', 0)
-  cy.log('nmb=====2')
   cy.get('.js-tab-captcha-login').click() //点击验证码
   cy.get('.account-input > .zent-input-wrapper > .zent-input').type(
     '18980621880'
