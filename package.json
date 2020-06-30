@@ -1,0 +1,19 @@
+{
+  "name": "beauty-goods-cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node scripts/cypress.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cypress/webpack-preprocessor": "^5.4.1",
+    "cypress": "^4.8.0",
+    "mochawesome-merge": "^4.1.0",
+    "mochawesome-report-generator": "^5.1.0",
+    "webpack": "^4.43.0",
+    "mochawesome": "^6.1.1"
+  }
+}

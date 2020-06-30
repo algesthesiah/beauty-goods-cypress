@@ -1,0 +1,12 @@
+.git/
+.idea/
+
+.DS_Store
+npm-debug.log
+selenium-debug.log
+.idea
+*.iml
+.vscode
+node_modules/
+.cache
+.cache-loader
