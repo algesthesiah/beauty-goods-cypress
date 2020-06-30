@@ -13,4 +13,4 @@ RUN npm i yarn -g \
 ARG gitCommit
 ENV GIT_COMMIT ${gitCommit}
 
-CMD [ "npm", "test"]
+CMD ["node","/code/scripts/cypress.js"]
