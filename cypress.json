@@ -8,9 +8,10 @@
   "viewportWidth": 1400,
   "reporter": "mochawesome",
   "reporterOptions": {
-    "overwrite": false,
-    "html": false,
-    "json": true
+    "overwrite": true,
+    "html": true,
+    "json": true,
+    "timestamp":"mmddyyyy_HH"
   },
   "viewportHeight": 800
 }
