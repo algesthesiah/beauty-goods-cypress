@@ -7,10 +7,11 @@ ENV VERSION ${version}
 ADD . /code
 WORKDIR /code
 RUN npm i yarn -g \
+  && npm i http-server -g \
   && yarn
 
 
 ARG gitCommit
 ENV GIT_COMMIT ${gitCommit}
 
-CMD node /code/scripts/cypress.js
+CMD ["/start.sh"]
