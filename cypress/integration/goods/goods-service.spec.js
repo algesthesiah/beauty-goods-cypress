@@ -1,14 +1,13 @@
 import { randomString, randomNum } from '@/utils/common'
 
 describe('goods-service', () => {
+  before(() => {
+    cy.login()
+  })
   beforeEach(() => {
-    // cy.setToken()
     cy.visit('https://mei.youzan.com/dashboard#/goods/manage/service/common/list/MAIN_MAIN')
   })
   it('服务表单提交主流程测试', function () {
-    cy.window().then((win) => {
-      console.log(win._global);
-    })
     cy.get('.g-space-between > :nth-child(1) > div > .zent-btn-primary')
       .should('contain', '添加服务')
       .click()
