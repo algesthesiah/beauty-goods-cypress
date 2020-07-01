@@ -1,5 +1,5 @@
 # Build
-FROM cypress/browsers:node12.13.0-chrome80-ff74
+FROM cypress/browsers:node12.18.0-chrome83-ff77
 
 ARG version
 ENV VERSION ${version}
