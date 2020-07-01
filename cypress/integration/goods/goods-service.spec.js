@@ -3,7 +3,7 @@ import { randomString, randomNum } from '@/utils/common'
 describe('goods-service', () => {
   beforeEach(() => {
     // cy.setToken()
-    cy.visit('/dashboard#/goods/manage/service/common/list/MAIN_MAIN')
+    cy.visit('https://mei.youzan.com/dashboard#/goods/manage/service/common/list/MAIN_MAIN')
   })
   it('服务表单提交主流程测试', function () {
     cy.window().then((win) => {
@@ -37,16 +37,12 @@ describe('goods-service', () => {
       ':nth-child(9) > .zent-form__controls > .zent-input-wrapper > .zent-input'
     ).type(`${randomNum(100, 1000)}`)
     // 提交表单
-    // cy.get('.zent-btn-primary').click()
-    // // 校验表单提交成功
-    // cy.get('.zent-btn-primary').should('contain', '保存')
-    // // 上架
-    // cy.get('.zent-affix > :nth-child(3)')
-    //   .click()
-    //   .find('.zent-dialog-r')
-    //   .then((res) => {
-    //     console.log(res)
-    //   })
+    cy.get('.zent-btn-primary').click()
+    // 校验表单提交成功
+    cy.get('.zent-btn-primary').should('contain', '保存')
+    // 上架
+    cy.get('.zent-affix > :nth-child(3)')
+      .click()
     cy.url().should('include', '/service/common/list/MAIN_MAIN')
     // 预览有bug pass
     // cy.get('.zent-affix > :nth-child(4)').click()

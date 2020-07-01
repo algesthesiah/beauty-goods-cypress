@@ -32,7 +32,7 @@ describe('add-product', () => {
     cy.get(
       '[style="display: flex; justify-content: flex-end;"] > .zent-btn-primary'
     ).click()
-    cy.wait('@createCategory').its('responseBody.code').should('eq', 200)
+    cy.shouldSucess('@createCategory')
     // 新建成功了没
     cy.get(
       '.tbody > :nth-child(1) > [style="width: 245px; flex: 0 1 auto;"] > .cell__child-container'
@@ -49,7 +49,7 @@ describe('add-product', () => {
     cy.server()
     cy.route('**/search_with_page_4_pc*').as('getImgList')
     cy.get('.rc-upload-trigger').click()
-    cy.wait('@getImgList').its('responseBody.code').should('eq', 0)
+    cy.shouldSucess('@getImgList')
     cy.get(':nth-child(1) > .image-box').click()
     // 图片确认
     cy.get('.center > .zent-btn-primary').click()
@@ -70,22 +70,16 @@ describe('add-product', () => {
     cy.route('POST', '**/createProductForSeller*').as('createProductForSeller')
     cy.log('点击保存按钮')
     cy.get('.zent-btn-primary').click()
-    cy.wait('@createProductForSeller')
-      .its('responseBody.code')
-      .should('eq', 200)
-    cy.url().should('include', '/service/common/list/MAIN_MAIN')
+    cy.shouldSucess('@createProductForSeller')
+    cy.url().should('include', '/product/common/list/MAIN_MAIN')
   })
   it('添加一个商品并上架', function () {
     cy.server()
     cy.route('POST', '**/createProductForSeller*').as('createProductForSeller')
     cy.route('POST', '**/setItemShelveStatus*').as('setItemShelveStatus')
     cy.get('.zent-affix > :nth-child(3)').click()
-    cy.wait('@createProductForSeller')
-      .its('responseBody.code')
-      .should('eq', 200)
-    cy.wait('@setItemShelveStatus')
-      .its('responseBody.code')
-      .should('eq', 200)
-    cy.url().should('include', '/service/common/list/MAIN_MAIN')
+    cy.shouldSucess('@createProductForSeller')
+    cy.shouldSucess('@setItemShelveStatus')
+    cy.url().should('include', '/product/common/list/MAIN_MAIN')
   })
 })

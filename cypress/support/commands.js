@@ -6,18 +6,23 @@ Cypress.Commands.add('login', () => {
   cy.server()
   cy.route('**/newGetCountryCodeList*').as('loginPageLoaded')
   cy.visit('https://account.youzan.com/login')
-  cy.wait('@loginPageLoaded').its('responseBody.code').should('eq', 0)
+  cy.get('.account__container__left')
+    .children()
+    .then((res) => {
+      if (res[0].className === 'login-qrcode') {
+        cy.get('.switch-type > img').click()
+      }
+    })
+  cy.shouldSucess('@loginPageLoaded')
   cy.get('.js-tab-captcha-login').click() //点击验证码
   cy.get('.account-input > .zent-input-wrapper > .zent-input').type(
     '18980621880'
   ) //账号验证码登录
   cy.get('.account-captcha > .zent-input-wrapper > .zent-input').type('111111')
   // 监听是否登录通过
-  cy.route('POST','**/register-and-login*').as('registerAndLogin')
+  cy.route('POST', '**/register-and-login*').as('registerAndLogin')
   cy.get('.zent-btn-primary').click() //登录
-  cy.log('nmb=====3')
-  cy.wait('@registerAndLogin').its('responseBody.code').should('eq', 0)
-  cy.log('nmb=====4')
+  cy.shouldSucess('@registerAndLogin')
   // 这是我的测试店铺，进入测试
   cy.get('[title="Puck专用店铺1"] > .name > .name-str').click()
   // 是否登录成功
@@ -28,15 +33,7 @@ Cypress.Commands.add('login', () => {
   })
 })
 
-Cypress.Commands.add('setToken', () => {
-  cy.server()
-
-  cy.visit('https://mei.youzan.com/dashboard#/dashboard').then((res) => {
-    // if(url.include){
-    //   https://account.youzan.com/login
-    // }
-    console.log(res)
-  })
-  cy.route('**/posts/**')
-  // cy.url().should('include', 'mei.youzan.com/dashboard')
+Cypress.Commands.add('shouldSucess', (name) => {
+  //通用接口成功判断
+  cy.wait(name).its('responseBody.code').should('oneOf', [10000, 200, 0])
 })
