@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>子页面demo13-iframe.html</title>
+        <script type="text/javascript">
+            window.onload = function () {
+                var fatherIframe = window.parent
+                var div = fatherIframe.document.getElementById('parDiv')
+                setTimeout(() => {
+                    div.style.color = 'red'
+                }, 1000)
+            }
+        </script>
+    </head>
+
+    <body>
+        <div
+            id="objId"
+            style="width: 100px; height: 100px; background-color: red"
+        >
+            子页面
+        </div>
+    </body>
+</html>
