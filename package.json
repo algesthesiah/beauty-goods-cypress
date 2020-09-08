@@ -11,9 +11,13 @@
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^5.4.1",
     "cypress": "^4.8.0",
+    "mochawesome": "^6.1.1",
     "mochawesome-merge": "^4.1.0",
     "mochawesome-report-generator": "^5.1.0",
-    "webpack": "^4.43.0",
-    "mochawesome": "^6.1.1"
+    "webpack": "^4.43.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "superagent": "^6.1.0"
   }
 }
