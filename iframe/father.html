@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>demo主页面</title>
+        <script type="text/javascript">
+            window.onload = function () {
+                var sonIframe = document.getElementById('sonId').contentWindow
+                var div = sonIframe.document.getElementById('objId')
+                setTimeout(() => {
+                    div.style.backgroundColor = '#ccc'
+                }, 1000)
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id="parDiv">父页面</div>
+        <iframe
+            src="son.html"
+            id="sonId"
+            height="150"
+            width="150"
+        ></iframe>
+    </body>
+</html>

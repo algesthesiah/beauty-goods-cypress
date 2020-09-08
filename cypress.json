@@ -1,13 +1,17 @@
 {
   "chromeWebSecurity": false,
   "watchForFileChanges": false,
+  "videosFolder": "mochawesome-report/public/videos",
+  "screenshotsFolder": "mochawesome-report/public/screenshots",
+  "videoCompression": false,
   "integrationFolder": "cypress/integration",
   "ignoreTestFiles": ["**/examples/*","**/utils/*"],
   "requestTimeout": 8000,
   "viewportWidth": 1400,
   "reporter": "mochawesome",
   "reporterOptions": {
-    "overwrite": true,
+    "overwrite": false,
+    "quiet": true,
     "html": false,
     "json": true,
     "timestamp":"mmddyyyy_HHMMss"
