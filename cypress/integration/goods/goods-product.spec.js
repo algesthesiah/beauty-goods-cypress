@@ -26,7 +26,7 @@ describe('add-product', () => {
 
         cy.routeResSucess({
             alias: 'createCategory',
-            matchRoute: '**/createCategory*',
+            matchRoute: '**/createCategory1*',
             cb: () => {
                 cy.get('[style="display: flex; justify-content: flex-end;"] > .zent-btn-primary').click();
             },
