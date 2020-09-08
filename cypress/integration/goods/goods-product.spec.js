@@ -82,22 +82,22 @@ describe('add-product', () => {
     });
 
     it('添加一个商品并上架', function () {
-        cy.routeResSucess({
-            method: 'POST',
-            matchRoute: '**/createProductForSeller*',
-            alias: 'createProductForSeller',
-            cb: () => {
-                cy.get('.zent-affix > :nth-child(3)').click();
+        cy.routeResSucess([
+            {
+                method: 'POST',
+                matchRoute: '**/createProductForSeller*',
+                alias: 'createProductForSeller',
             },
-        });
-        cy.routeResSucess({
-            method: 'POST',
-            matchRoute: '**/setItemShelveStatus*',
-            alias: 'setItemShelveStatus',
-            cb: () => {
-                cy.get('.zent-affix > :nth-child(3)').click();
+            {
+                method: 'POST',
+                matchRoute: '**/setItemShelveStatus*',
+                alias: 'setItemShelveStatus',
+                cb: () => {
+                    // 点击上架
+                    cy.get('.zent-affix > :nth-child(3)').click();
+                },
             },
-        });
+        ]);
         cy.url().should('include', '/product/common/list/MAIN_MAIN');
     });
 });

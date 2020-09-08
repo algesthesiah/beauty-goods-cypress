@@ -41,15 +41,5 @@ describe('goods-service', () => {
     cy.get('.zent-affix > :nth-child(3)')
       .click()
     cy.url().should('include', '/service/common/list/MAIN_MAIN')
-    // 预览有bug pass
-    // cy.get('.zent-affix > :nth-child(4)').click()
-    // // 校验预览
-    // // cy.wait(5000)
-    // cy.server()
-    // cy.route({
-    //   method: 'GET',
-    //   url: '/api/h5/mei/item/serving/buyer/getItemDetailByGoodsAlias',
-    // }).as('H5api')
-    // cy.wait('@H5api').its('status').should('eq', 200)
   })
 })
