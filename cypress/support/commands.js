@@ -35,33 +35,13 @@ Cypress.Commands.add('login', loginType => {
             ticket: 'sssss',
         };
     }
-    cy.log('开始登录')
+    cy.log('开始登录');
     cy.requestResSucess({ method: 'POST', url: loginUrl, params });
-    cy.log('开始选择店铺')
-    cy.selectShop(55313402, 1);
-});
 
-// 选择店铺
-Cypress.Commands.add('selectShop', (kdtId, deptId) => {
-    cy.requestResSucess({
-        method: 'POST',
-        url: 'https://mei.youzan.com/session/s/pc/exchange',
-        params: { kdtId: kdtId },
-    });
-
-    cy.requestResSucess({
-        method: 'POST',
-        url: 'https://mei.youzan.com/session/shop/bind',
-        params: {
-            kdtId: kdtId,
-            deptId: deptId,
-            // deviceType: 3,
-        },
-    });
-
-    cy.requestResSucess({
-        method: 'GET',
-        url: 'https://mei.youzan.com/auth/shop/select',
-        params: { kdt_id: kdtId },
-    });
+    cy.log('开始选择店铺');
+    cy.visit('https://www.youzan.com/v4/shop/shop-list#/')
+    // 这是我的测试店铺，进入测试
+    cy.get('[title="Puck专用店铺1"] > .name > .name-str').click();
+    // 是否登录成功
+    cy.url().should('include', 'mei.youzan.com');
 });
