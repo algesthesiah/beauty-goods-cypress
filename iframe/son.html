@@ -6,21 +6,20 @@
         <title>子页面demo13-iframe.html</title>
         <script type="text/javascript">
             window.onload = function () {
-                var fatherIframe = window.parent
-                var div = fatherIframe.document.getElementById('parDiv')
+                var fatherIframe = window.parent;
+                var div = fatherIframe.document.getElementById('parDiv');
                 setTimeout(() => {
-                    div.style.color = 'red'
-                }, 1000)
-            }
+                    div.style.color = 'red';
+                    const http = new XMLHttpRequest();
+                    const url = 'http://127.0.0.1:8080/';
+                    http.open('GET', url);
+                    http.send();
+                }, 1000);
+            };
         </script>
     </head>
 
     <body>
-        <div
-            id="objId"
-            style="width: 100px; height: 100px; background-color: red"
-        >
-            子页面
-        </div>
+        <div id="objId" style="width: 100px; height: 100px; background-color: red">子页面</div>
     </body>
 </html>
